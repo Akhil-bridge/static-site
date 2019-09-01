@@ -43,7 +43,10 @@ pipeline {
                  steps {
                      sh "pwd"
                      sh "ssh developer@pmt.bridge-global.com rm -f /websites/pmt.bridge-global.com/site/*"
-                      sh "${WORKSPACE}"
+                      sh "ssh developer@pmt.bridge-global.com << EOF
+ cd /websites/pmt.bridge-global.com/site/
+ git pull origin master
+EOF"
                  }
                  }
              

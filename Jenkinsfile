@@ -1,7 +1,7 @@
 pipeline {
          agent any
          stages {
-                 stage('One') {
+                 stage('Loading Project') {
                  steps {
                      echo 'Hi, this is Zulaikha from edureka'
                  }
@@ -28,9 +28,10 @@ pipeline {
                     timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
                         def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                         if (qg.status != 'OK') {
+                                 mail bcc: '', body: 'this bulid', cc: '', from: '', replyTo: '', subject: 'test email', to: 'akhil.h@bridge-global.com'
                             error "Pipeline aborted due to quality gate failure: ${qg.status}"
                         } else {
-                                 mail bcc: '', body: 'this bulid', cc: '', from: '', replyTo: '', subject: 'test email', to: 'akhil.h@bridge-global.com'
+                                 
                            echo 'Quality is Ok :)'
                         }
                     }

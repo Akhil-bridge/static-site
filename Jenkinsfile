@@ -42,7 +42,8 @@ pipeline {
                    stage('deploy') {
                  steps {
                      sh "pwd"
-                     sh "ssh -T developer@pmt.bridge-global.com cd /websites/pmt.bridge-global.com/site/ && git pull origin master"
+                     sh 'ssh -T developer@pmt.bridge-global.com "cd /websites/pmt.bridge-global.com/site/&&git pull origin master"
+'
                       echo 'Deployed Succesfully!!'
                  }
                  }

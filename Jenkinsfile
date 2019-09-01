@@ -6,16 +6,16 @@ pipeline {
                      echo 'Hi, this is Zulaikha from edureka'
                  }
                  }
-                    stage("build & SonarQube analysis") {
-            agent any
-            steps {
-                     
-              withSonarQubeEnv('sonarQ') {
-                       def scannerHome = tool 'sonarQ'
-                 sh "${scannerHome}/bin/sonar-scanner"
-              }
-            }
-          }
+                 stage('SonarQube analysis') {
+      tools {
+        sonarQube 'sonarQ'
+      }
+      steps {
+        withSonarQubeEnv('sonarQ') {
+          sh 'sonar-scanner'
+        }
+      }
+    }
                
            
                 

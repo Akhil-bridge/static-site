@@ -30,6 +30,7 @@ pipeline {
                         if (qg.status != 'OK') {
                             error "Pipeline aborted due to quality gate failure: ${qg.status}"
                         } else {
+                                 mail bcc: '', body: 'this bulid', cc: '', from: '', replyTo: '', subject: 'test email', to: 'akhil.h@bridge-global.com'
                            echo 'Quality is Ok :)'
                         }
                     }

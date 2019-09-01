@@ -9,7 +9,7 @@ pipeline {
                     stage("build & SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
+              withSonarQubeEnv('sonarQ') {
                  sh "${scannerHome}/bin/sonar-scanner"
               }
             }

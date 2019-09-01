@@ -7,7 +7,7 @@ pipeline {
                  }
                  }
                
-                 stage('Three') {
+           
                 
                  stage('SonarQube Quality Gate') {
             steps {
@@ -20,7 +20,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
                  }
              
               }

@@ -6,14 +6,19 @@ pipeline {
                      echo 'Hi, this is Zulaikha from edureka'
                  }
                  }
-                 stage('SonarQube analysis') {
-    
+
+    stage('SonarQube analysis') {
       steps {
+        script {
+          // requires SonarQube Scanner 2.8+
+          scannerHome = tool 'sonarQ'
+        }
         withSonarQubeEnv('sonarQ') {
-          sh 'sonar-scanner'
+          sh "${scannerHome}/bin/sonar-scanner"
         }
       }
     }
+  
                
            
                 

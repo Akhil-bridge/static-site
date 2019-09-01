@@ -3,7 +3,7 @@ pipeline {
          stages {
                  stage('Loading Project') {
                  steps {
-                     echo 'Hi, this is Zulaikha from edureka'
+                     echo 'Hi, welcome to Akhil test project'
                  }
                  }
 
@@ -42,10 +42,8 @@ pipeline {
                    stage('deploy') {
                  steps {
                      sh "pwd"
-                      sh '''ssh -T developer@pmt.bridge-global.com << EOF
- cd /websites/pmt.bridge-global.com/site/ \
- git pull origin master \
-EOF'''
+                     sh "ssh -T developer@pmt.bridge-global.com cd /websites/pmt.bridge-global.com/site/ && git pull origin master"
+                      echo 'Deployed Succesfully!!'
                  }
                  }
              

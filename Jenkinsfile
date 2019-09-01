@@ -42,7 +42,7 @@ pipeline {
                    stage('deploy') {
                  steps {
                      sh "pwd"
-                     sh "ssh developer@pmt.bridge-global.com rm /websites/pmt.bridge-global.com/site/*"
+                     sh "ssh developer@pmt.bridge-global.com rm -f /websites/pmt.bridge-global.com/site/*"
                       sh "${WORKSPACE}"
                  }
                  }

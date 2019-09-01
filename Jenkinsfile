@@ -9,6 +9,7 @@ pipeline {
                     stage("build & SonarQube analysis") {
             agent any
             steps {
+                     def scannerHome = tool 'sonarQ'
               withSonarQubeEnv('sonarQ') {
                  sh "${scannerHome}/bin/sonar-scanner"
               }
